@@ -15,7 +15,7 @@
     <a href="https://github.com/Jason897571/Raccoon-SVG-Logo-Maker"><strong>Click here for Github Repo  »</strong></a>
     <br />
     <br />
-    <a href="https://drive.google.com/file/d/1Q3rvvYdB6xMsI5UydZlY-vavPj2iR_zd/view?usp=sharing">Video WalkThrough</a>
+    <a href="https://drive.google.com/file/d/1n9aayg3WEUyYPNV5foNUoSo2jvhNAMIP/view?usp=sharing">Video WalkThrough</a>
     ·
     <a href="https://github.com/Jason897571/Raccoon-SVG-Logo-Maker/issues">Report Bug</a>
     ·

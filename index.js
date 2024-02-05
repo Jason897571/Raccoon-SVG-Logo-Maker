@@ -86,10 +86,11 @@ const questions = [
 
 // save example html
 const save_html = (html) => {
-    fs.writeFile('./examples/index.html', html, (err) => {
+    fs.writeFile('./examples/index.svg', html, (err) => {
         if (err) throw err;
     })
 }
+
 
 const ask_questions = () => {
     inquirer.prompt(questions)
@@ -107,6 +108,7 @@ const ask_questions = () => {
                 const triangle = new Triangle(answers.shape,answers.shapeColor, iconText, answers.textColor);
                 const html = triangle.render();
                 save_html(html);
+
             }
             else if (answers.shape === 'Circle'){
                 const circle = new Circle(answers.shape,answers.shapeColor, iconText, answers.textColor);
