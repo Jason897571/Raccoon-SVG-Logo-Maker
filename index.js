@@ -90,14 +90,13 @@ const save_html = (html) => {
 }
 
 const ask_questions = () => {
-    inquirer
-    .prompt(questions)
+    return inquirer.prompt(questions)
     .then((answers) => {
 
         // shape color cannot be the same as text color, otherwise user cannot see text
         if(answers.shapeColor===answers.textColor){
             console.log('Shape color and text color cannot be the same. Please choose different colors.');
-            ask_questions();
+            return ask_questions();
         }else{
             if (answers.shape === 'Triangle'){
                 const triangle = new Triangle(answers.shape,answers.shapeColor, answers.text, answers.textColor);
@@ -115,9 +114,12 @@ const ask_questions = () => {
                 save_html(html);
             }
         }
+        return answers
        
     })
 }
 
 ask_questions();
+
+module.exports = ask_questions;
 
