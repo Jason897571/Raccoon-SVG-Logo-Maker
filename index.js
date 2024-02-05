@@ -100,8 +100,9 @@ const ask_questions = () => {
             console.log('Shape color and text color cannot be the same. Please choose different colors.');
             return ask_questions();
         }else{
-
+            // convert text input as uppercase
             const iconText = answers.text.toUpperCase()
+            // generate html based on user input
             if (answers.shape === 'Triangle'){
                 const triangle = new Triangle(answers.shape,answers.shapeColor, iconText, answers.textColor);
                 const html = triangle.render();
