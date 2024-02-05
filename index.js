@@ -1,7 +1,7 @@
-const inquirer = require('inquirer');
+const inquirer = require('inquirer') ;
 const fs = require('fs');
 // import class from shapes.js
-const { Circle, Square, Triangle } = require('./lib/shapes');
+const {Triangle, Circle, Square} = require('./lib/shapes.js') ;
 
 // questions for users
 const questions = [
@@ -43,6 +43,8 @@ const questions = [
     type: 'input',
     message: 'Enter the text in the shape',
     name: 'text',
+    transformer: (input) => {
+        return input.toUpperCase();},
     validate: function(input){
         if(input.length > 3){
             return 'Text should be 3 characters or less. Please enter again.';
@@ -89,8 +91,8 @@ const save_html = (html) => {
     })
 }
 
-const ask_questions = () => {
-    return inquirer.prompt(questions)
+export const ask_questions = () => {
+    inquirer.prompt(questions)
     .then((answers) => {
 
         // shape color cannot be the same as text color, otherwise user cannot see text
@@ -98,28 +100,30 @@ const ask_questions = () => {
             console.log('Shape color and text color cannot be the same. Please choose different colors.');
             return ask_questions();
         }else{
+
+            const iconText = answers.text.toUpperCase()
             if (answers.shape === 'Triangle'){
-                const triangle = new Triangle(answers.shape,answers.shapeColor, answers.text, answers.textColor);
-                html = triangle.html_generator();
+                const triangle = new Triangle(answers.shape,answers.shapeColor, iconText, answers.textColor);
+                const html = triangle.render();
                 save_html(html);
             }
             else if (answers.shape === 'Circle'){
-                const circle = new Circle(answers.shape,answers.shapeColor, answers.text, answers.textColor);
-                html = circle.html_generator();
+                const circle = new Circle(answers.shape,answers.shapeColor, iconText, answers.textColor);
+                const html = circle.render();
                 save_html(html);
             }
             else if (answers.shape === 'Square'){
-                const square = new Square(answers.shape,answers.shapeColor, answers.text, answers.textColor);
-                html = square.html_generator();
+                const square = new Square(answers.shape,answers.shapeColor, iconText, answers.textColor);
+                const html = square.render();
                 save_html(html);
             }
         }
-        return answers
+        console.log("Generated logo.svg")
+        
        
     })
 }
 
 ask_questions();
 
-module.exports = ask_questions;
 

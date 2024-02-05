@@ -13,10 +13,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "fs": "^0.0.1-security",
-    "inquirer": "^8.2.6",
-    "require": "^2.4.20"
+    "inquirer": "^8.2.4"
   },
   "devDependencies": {
     "jest": "^29.7.0"
