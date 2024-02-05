@@ -91,7 +91,7 @@ const save_html = (html) => {
     })
 }
 
-export const ask_questions = () => {
+const ask_questions = () => {
     inquirer.prompt(questions)
     .then((answers) => {
 
